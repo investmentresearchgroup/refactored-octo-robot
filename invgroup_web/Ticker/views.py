@@ -6,5 +6,5 @@ import pandas as pd
 def display_data(request):
     query = Price.objects.all().values()
     frame = pd.DataFrame(query)
-    context = {'frame': frame.to_html() }
-    return render(request,'Ticker/main.html',context)
+    payload = {'frame': frame.to_html()}
+    return render(request,'Ticker/main.html', payload)

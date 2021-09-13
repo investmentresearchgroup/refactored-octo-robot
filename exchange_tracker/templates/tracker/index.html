@@ -1,0 +1,230 @@
+{% extends 'partials/base.html' %} 
+{% block title %}Exchange Tracker{% endblock %}
+
+
+{% block content %} 
+    <div class="container">
+    <!--Topside-->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card bg-light">
+                    <div class="card-header bg-dark text-light">Ghana Stock Exchange</div>
+                    <div class="card-body bg-light ">
+                        <marquee height = '120px' Scrollamount=2 behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                            <h6>{{description}}</h6>
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card bg-light">
+                    <div class="card-header bg-dark text-light">Listed Companies</div>
+                    <div class="card-body scroll">
+                        <div class="row  flex-row flex-nowrap">
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark " href="#"> <!--Never forget how this works from urls.py-->
+                                    <div class="card shadow bg-light my-card text-center p-3">
+                                        <h4>Ticker 1</h4>
+                                        <h3>4 <i class="fas fa-angle-double-up fa-success"></i></h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark " href="#">
+                                    <div class="card bg-light my-card text-center p-3">
+                                        <h4>Ticker 2 <i class="fas fa-box fa-failure"></i></h4>
+                                        <h3>4</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark " href="#">
+                                    <div class="card my-card text-center p-3">
+                                        <h4>Ticker 3 <i class="fas fa-shipping-fast"></i></h4>
+                                        <h3>4</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark " href="#">
+                                    <div class="card my-card text-center p-3">
+                                        <h4>TIcker 4 <i class="fas fa-shipping-fast"></i></h4>
+                                        <h3>4</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark " href="#">
+                                    <div class="card my-card text-center p-3">
+                                        <h4>Ticker 5 <i class="fas fa-shipping-fast"></i></h4>
+                                        <h3>4</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--End top side-->
+    <!--Second row-->
+        <div class="row pt-3">
+            <div class="col-md-8">
+                <div class="card">
+                    <!--Chart1-->
+                        <div class="bg-light">
+                            <canvas id="myChart1" width="400" height="200"></canvas>
+                            <script>
+                            var ctx = document.getElementById('myChart1').getContext('2d');
+                            var myChart1 = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [{% for index in indexprices %} "{{index.date}}", {% endfor %}],
+                                    datasets: [{
+                                        label: 'Index',
+                                        data: [{% for index in indexprices %} {{index.value}}, {% endfor %}],
+                                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                        borderColor: 'rgba(255, 99, 132, 1)',
+                                        borderWidth: 0.5
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                            </script>
+                        </div>
+                    <!--End Chart1-->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!--Table-->
+                    <div class="card bg-light">
+                        <div class="card-header bg-dark text-light">
+                            Summary
+                        </div>
+                        <div class="card-body">
+                            <table class="table bg-light">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Metric1</th>
+                                        <td>Value1</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Metric2</th>
+                                        <td>Value2</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Metric3</th>
+                                        <td>Value3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <!--End Table-->
+            </div>
+        </div>
+    <!--End Second Row-->
+    <!--Third row-->
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <!--Chart2-->
+                <div class="bg-light">
+                    <canvas id="myChart2" width="400" height="300"></canvas>
+                    <script>
+                    var ctx = document.getElementById('myChart2').getContext('2d');
+                    var myChart2 = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            datasets: [{
+                                label: 'Historical Annual returns',
+                                data: [12, 19, 3, 5, 2, 3],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.5)',
+                                    'rgba(54, 162, 235, 0.5)',
+                                    'rgba(255, 206, 86, 0.5)',
+                                    'rgba(75, 192, 192, 0.5)',
+                                    'rgba(153, 102, 255, 0.5)',
+                                    'rgba(255, 159, 64, 0.5)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    </script>
+                </div>
+                <!--End Chart2-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <!--Chart3-->
+                    <div class="bg-dark">
+                        <canvas id="myChart3" width="400" height="300"></canvas>
+                        <script>
+                        var ctx = document.getElementById('myChart3').getContext('2d');
+                        var myChart3 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: 'Annual Compound Returns',
+                                    data: [12, 19, 4, -5, 2, -3],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.5)',
+                                        'rgba(54, 162, 235, 0.5)',
+                                        'rgba(255, 206, 86, 0.5)',
+                                        'rgba(75, 192, 192, 0.5)',
+                                        'rgba(153, 102, 255, 0.5)',
+                                        'rgba(255, 159, 64, 0.5)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                        </script>
+                    </div>
+                <!--End Chart3-->
+            </div>
+        </div>
+    </div>
+    <!--End third row-->
+    </div>
+{% endblock  %}
