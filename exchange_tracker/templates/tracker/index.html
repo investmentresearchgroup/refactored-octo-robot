@@ -7,9 +7,9 @@
     <!--Topside-->
         <div class="row mt-4">
             <div class="col-md-4">
-                <div class="card bg-light">
+                <div class="card border-0 bg-light bg-gradient">
                     <div class="card-header bg-dark text-light">Ghana Stock Exchange</div>
-                    <div class="card-body bg-light ">
+                    <div class="card-body bg-light bg-gradient">
                         <marquee height = '120px' Scrollamount=2 behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
                             <h6>{{description}}</h6>
                         </marquee>
@@ -17,50 +17,20 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card bg-light">
+                <div class="card border-0 bg-light bg-gradient">
                     <div class="card-header bg-dark text-light">Listed Companies</div>
                     <div class="card-body scroll">
                         <div class="row  flex-row flex-nowrap">
-                            <div class="col-md-4">
-                                <a class="text-decoration-none text-dark " href="#"> <!--Never forget how this works from urls.py-->
-                                    <div class="card shadow bg-light my-card text-center p-3">
-                                        <h4>Ticker 1</h4>
-                                        <h3>4 <i class="fas fa-angle-double-up fa-success"></i></h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a class="text-decoration-none text-dark " href="#">
-                                    <div class="card bg-light my-card text-center p-3">
-                                        <h4>Ticker 2 <i class="fas fa-box fa-failure"></i></h4>
-                                        <h3>4</h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a class="text-decoration-none text-dark " href="#">
-                                    <div class="card my-card text-center p-3">
-                                        <h4>Ticker 3 <i class="fas fa-shipping-fast"></i></h4>
-                                        <h3>4</h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a class="text-decoration-none text-dark " href="#">
-                                    <div class="card my-card text-center p-3">
-                                        <h4>TIcker 4 <i class="fas fa-shipping-fast"></i></h4>
-                                        <h3>4</h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a class="text-decoration-none text-dark " href="#">
-                                    <div class="card my-card text-center p-3">
-                                        <h4>Ticker 5 <i class="fas fa-shipping-fast"></i></h4>
-                                        <h3>4</h3>
-                                    </div>
-                                </a>
-                            </div>
+                            {% for ticker in tickers %}
+                                <div class="col-md-4">
+                                    <a class="text-decoration-none text-dark " href="{% url 'tracker-single' ticker.id %}"> <!--Never forget how this works from urls.py-->
+                                        <div data-toggle="tooltip" data-placement="auto" title="{{ticker.full_name}}" class="card border-0 shadow bg-light my-card text-center p-3">
+                                            <h5>{{ticker.name}} <i class="fas fa-angle-double-up fa-success"></i></h5>
+                                            <h5>4 | 23%</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -69,8 +39,8 @@
     <!--End top side-->
     <!--Second row-->
         <div class="row pt-3">
-            <div class="col-md-8">
-                <div class="card">
+            <div class="col-md-9">
+                <div class="card border-0">
                     <!--Chart1-->
                         <div class="bg-light">
                             <canvas id="myChart1" width="400" height="200"></canvas>
@@ -101,14 +71,14 @@
                     <!--End Chart1-->
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <!--Table-->
-                    <div class="card bg-light">
+                    <div class="card border-0 bg-light bg-gradient">
                         <div class="card-header bg-dark text-light">
                             Summary
                         </div>
-                        <div class="card-body">
-                            <table class="table bg-light">
+                        <div class="card-body bg-light bg-gradient">
+                            <table class="table bg-light bg-gradient">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Metric1</th>
@@ -133,7 +103,7 @@
     <!--Third row-->
     <div class="row pt-3">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card border-0">
                 <!--Chart2-->
                 <div class="bg-light">
                     <canvas id="myChart2" width="400" height="300"></canvas>
@@ -179,9 +149,9 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
+            <div class="card border-0">
                 <!--Chart3-->
-                    <div class="bg-dark">
+                    <div class="bg-light bg-gradient">
                         <canvas id="myChart3" width="400" height="300"></canvas>
                         <script>
                         var ctx = document.getElementById('myChart3').getContext('2d');
