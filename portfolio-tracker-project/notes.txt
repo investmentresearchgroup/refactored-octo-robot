@@ -1,0 +1,12 @@
+Create parent (portfolio-tracker)
+pipenv shell inside parent (creates virtual env) :  C:\Users\dswir\.virtualenvs\portfolio-tracker-project-fGVsuLkV
+install dependencies : pipenv install django
+-------------------------------------------------
+
+We will use postgres for future implementations but for now it is the regular sqlite
+Some notes on deploying the app:
+1. Install gunicorn and heroku
+2. Initialize git init
+2. Push files and so on....
+
+

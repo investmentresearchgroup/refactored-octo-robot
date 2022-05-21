@@ -43,15 +43,13 @@ def create_ticker(line):
     )
 
 
-def create_tickerprice(line):
-    ticker, created = create_ticker(line)
-    return TickerPrice.objects.get_or_create(
-        ticker=ticker,
-        date=line['date'],
-        volume=float(line['volume']),
-        change=float(line['change']),
-        price=float(line['price'])
-    )
+def create_tickerprice(line, ticker_id_map: dict):
+    tickerprice = TickerPrice(date=line['date'],
+                              volume=float(line['volume']),
+                              change=float(line['change']),
+                              price=float(line['price']))
+    tickerprice.ticker_id = ticker_id_map[line['ticker']]
+    return tickerprice
 
 
 FIELDS = {

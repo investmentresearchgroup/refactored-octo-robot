@@ -1,7 +1,217 @@
 {% extends 'partials/base.html' %} 
-{% block title %}Ticker Name{% endblock %}
+{% block title %}Exchange Tracker - {{ticker}} {% endblock %}
 
-{% block content %}
-    <h4>This it the ticker page</h4>
-    <h5>You selected {{ticker}}</h5>
-{% endblock %}
+
+{% block content %} 
+    <div class="container">
+    <!--Topside-->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card border-0 bg-light bg-gradient">
+                    <div class="card-header bg-dark text-light">{{ticker.full_name}}</div>
+                    <div class="card-body bg-light bg-gradient">
+                        <marquee height = '120px' Scrollamount=1 behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                            <h6>{{ticker.full_name}}</h6>
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light bg-gradient">
+                    <div class="card-header bg-dark text-light">Current Stats</div>
+                    <div class="card-body">
+                        {% comment %} <div class="card p-3 text-center">
+                            <h5>{{ticker.name}} <i class="fas fa-angle-double-up fa-success"></i></h5>
+                            <h5> </h5>
+                            <h5>4 | 23% | 5.5%</h5>
+                        </div> {% endcomment %}
+                        <table class="table bg-white table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Market Value</th>
+                                    <td>121312</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Change (Market Value)</th>
+                                    <td>5.5</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Return</th>
+                                    <td>23%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light bg-gradient">
+                    <div class="card-header bg-dark text-light">Market Cap</div>
+                    <div class="card-body">
+                        <canvas id="myChart4" width="300" height="150"></canvas>
+                        <script>
+                        var ctx = document.getElementById('myChart4').getContext('2d');
+                        var myChart4 = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: ['Red', 'Blue'],
+                                datasets: [{
+                                    data: [12, 3],
+                                    backgroundColor: [
+                                        'rgba(38, 76, 114,1)',
+                                        'rgba(255, 99, 132, 1)'
+                                        ],
+                                    borderColor: [
+                                        'rgba(38, 76, 114,1)',
+                                        'rgba(255, 99, 132, 1)'
+                                        ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                plugins: {
+                                    legend: false,
+                                },
+                                maintainAspectRatio: false,
+                                responsive:true
+                            }
+                        });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--End top side-->
+    <!--Second row-->
+        <div class="row pt-3">
+            <div class="col-md-9">
+                <div class="card border-0">
+                    <!--Chart1-->
+                        <div class="bg-light">
+                            <canvas id="myChart5" width="400" height="200"></canvas>
+                            <script>
+                            var ctx = document.getElementById('myChart5').getContext('2d');
+                            var myChart5 = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                    datasets: [{
+                                        label: 'Histrocial series',
+                                        data: [12, 19, 4, -5, 2, -3],
+                                        backgroundColor: 'rgba(38, 76, 114,1)',
+                                        borderColor: 'rgba(38, 76, 114,1)',
+                                        borderWidth: 0.5
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                            </script>
+                        </div>
+                    <!--End Chart1-->
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!--Table-->
+                    <div class="card border-0 bg-light bg-gradient">
+                        <div class="card-header bg-dark text-light">
+                            Summary
+                        </div>
+                        <div class="card-body bg-light bg-gradient">
+                            <table class="table bg-light bg-gradient">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Metric1</th>
+                                        <td>Value1</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Metric2</th>
+                                        <td>Value2</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Metric3</th>
+                                        <td>Value3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <!--End Table-->
+            </div>
+        </div>
+    <!--End Second Row-->
+    <!--Third row-->
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="card border-0">
+                <!--Chart2-->
+                <div class="bg-light">
+                    <canvas id="myChart6" width="400" height="300"></canvas>
+                    <script>
+                    var ctx = document.getElementById('myChart6').getContext('2d');
+                    var myChart6 = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            datasets: [{
+                                label: 'Historical Annual returns',
+                                data: [12, 19, 3, 5, 2, 3],
+                                backgroundColor: 'rgba(38, 76, 114,1)',
+                                borderColor: 'rgba(38, 76, 114,1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    </script>
+                </div>
+                <!--End Chart2-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0">
+                <!--Chart3-->
+                    <div class="bg-light bg-gradient">
+                        <canvas id="myChart7" width="400" height="300"></canvas>
+                        <script>
+                        var ctx = document.getElementById('myChart7').getContext('2d');
+                        var myChart7 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: 'Annual Compound Returns',
+                                    data: [12, 19, 4, -5, 2, -3],
+                                    backgroundColor: 'rgba(38, 76, 114,1)',
+                                    borderColor: 'rgba(38, 76, 114,1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                        </script>
+                    </div>
+                <!--End Chart3-->
+            </div>
+        </div>
+    </div>
+    <!--End third row-->
+    </div>
+{% endblock  %}

@@ -58,9 +58,9 @@ class Industry(models.Model):
 
 
 class Ticker(models.Model):
-    country_index = models.ForeignKey(CountryIndex, on_delete=models.CASCADE)
-    sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
-    industry = models.ForeignKey(Industry, on_delete=models.CASCADE)
+    country_index = models.CharField(max_length=100, blank=True)
+    sector = models.CharField(max_length=100, blank=True)
+    industry = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=10)
     full_name = models.CharField(max_length=100, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -73,8 +73,7 @@ class Ticker(models.Model):
 
 
 class TickerPrice(models.Model):
-    models.ForeignKey(Ticker, on_delete=models.CASCADE)
-    ticker = models.CharField(max_length=10)
+    ticker = models.CharField(max_length=100, blank=True)
     date = models.DateField()
     volume = models.DecimalField(max_digits=15, decimal_places=5, default=0.0)
     change = models.DecimalField(max_digits=15, decimal_places=5, default=0.0)
@@ -86,3 +85,7 @@ class TickerPrice(models.Model):
 
     class Meta:
         unique_together = ['ticker', 'date']
+
+
+class ContactUs(models.Model):
+    ...

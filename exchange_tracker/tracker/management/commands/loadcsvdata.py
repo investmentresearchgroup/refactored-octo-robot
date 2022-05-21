@@ -1,4 +1,5 @@
 import csv
+from tracker.models import IndexPrice, Ticker, TickerPrice
 from django.core.management.base import BaseCommand
 from django.db.utils import IntegrityError
 from django.core.exceptions import FieldError
@@ -29,6 +30,18 @@ class Command(BaseCommand):
             csv_ = csv.DictReader(csv_file)
 
             if fields_validated(csv_.fieldnames, model_fields):
+                if model == 'Ticker Price':
+                    ticker_id_map = {
+                        tick.name: tick.id for tick in Ticker.objects.all()}
+                    print(ticker_id_map)
+                    self.stdout.write("Creating Ticker prices...")
+                    tickerprices = [object_method(
+                        line, ticker_id_map) for line in csv_]
+                    self.stdout.write(
+                        f"saving {len(tickerprices)} prices in bulk...")
+                    TickerPrice.objects.bulk_create(tickerprices)
+                    self.stdout.write(self.style.SUCCESS(
+                        "Successfully loaded prices!"))
                 for line in csv_:
                     try:
                         created_object, created = object_method(line)

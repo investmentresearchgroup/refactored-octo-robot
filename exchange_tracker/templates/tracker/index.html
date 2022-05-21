@@ -1,8 +1,8 @@
-{% extends 'partials/base.html' %} 
+{% extends 'partials/base.html' %}
 {% block title %}Exchange Tracker{% endblock %}
 
 
-{% block content %} 
+{% block content %}
     <div class="container">
     <!--Topside-->
         <div class="row mt-4">
@@ -45,27 +45,27 @@
                         <div class="bg-light">
                             <canvas id="myChart1" width="400" height="200"></canvas>
                             <script>
-                            var ctx = document.getElementById('myChart1').getContext('2d');
-                            var myChart1 = new Chart(ctx, {
-                                type: 'line',
-                                data: {
-                                    labels: [{% for index in indexprices %} "{{index.date}}", {% endfor %}],
-                                    datasets: [{
-                                        label: 'Index',
-                                        data: [{% for index in indexprices %} {{index.value}}, {% endfor %}],
-                                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                                        borderColor: 'rgba(255, 99, 132, 1)',
-                                        borderWidth: 0.5
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true
+                                var ctx = document.getElementById('myChart1').getContext('2d');
+                                var myChart1 = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: [{% for index in indexprices %} "{{index.date}}", {% endfor %}],
+                                        datasets: [{
+                                            label: 'Index',
+                                            data: [{% for index in indexprices %} {{index.value}}, {% endfor %}],
+                                            backgroundColor: 'rgba(38, 76, 114,1)',
+                                            borderColor: 'rgba(38, 76, 114,1)',
+                                            borderWidth: 0.5
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
                                         }
                                     }
-                                }
-                            });
+                                });
                             </script>
                         </div>
                     <!--End Chart1-->
@@ -78,7 +78,7 @@
                             Summary
                         </div>
                         <div class="card-body bg-light bg-gradient">
-                            <table class="table bg-light bg-gradient">
+                            <table class="table table-sm bg-light bg-gradient">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Metric1</th>
@@ -116,22 +116,8 @@
                             datasets: [{
                                 label: 'Historical Annual returns',
                                 data: [12, 19, 3, 5, 2, 3],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.5)',
-                                    'rgba(54, 162, 235, 0.5)',
-                                    'rgba(255, 206, 86, 0.5)',
-                                    'rgba(75, 192, 192, 0.5)',
-                                    'rgba(153, 102, 255, 0.5)',
-                                    'rgba(255, 159, 64, 0.5)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
-                                ],
+                                backgroundColor: 'rgba(38, 76, 114,1)',
+                                borderColor: 'rgba(38, 76, 114,1)',
                                 borderWidth: 1
                             }]
                         },
@@ -162,22 +148,8 @@
                                 datasets: [{
                                     label: 'Annual Compound Returns',
                                     data: [12, 19, 4, -5, 2, -3],
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.5)',
-                                        'rgba(54, 162, 235, 0.5)',
-                                        'rgba(255, 206, 86, 0.5)',
-                                        'rgba(75, 192, 192, 0.5)',
-                                        'rgba(153, 102, 255, 0.5)',
-                                        'rgba(255, 159, 64, 0.5)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
-                                    ],
+                                    backgroundColor: 'rgba(38, 76, 114,1)',
+                                    borderColor: 'rgba(38, 76, 114,1)',
                                     borderWidth: 1
                                 }]
                             },
