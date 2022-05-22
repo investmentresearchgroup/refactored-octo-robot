@@ -57,4 +57,4 @@ class Command(BaseCommand):
                                 f"Got the following exception while processing row {row}: {exp}"
                             )
                         )
-        self.stdout.write(self.style.SUCCESS("Successfully loaded {method} data!"))
+        self.stdout.write(self.style.SUCCESS(f"Successfully loaded {method} data!"))

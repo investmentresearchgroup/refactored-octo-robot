@@ -43,7 +43,7 @@ class Client(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.clientid} - {self.name}"
+        return f"{self.clientid}"
 
     class Meta:
         unique_together = ["clientid"]
@@ -70,7 +70,7 @@ class Account(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.accountid} - {self.account_name}"
+        return f"{self.accountid}"
 
     class Meta:
         unique_together = ["accountid"]
@@ -100,7 +100,7 @@ class Security(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.securityid} - {self.name}"
+        return f"{self.securityid}"
 
     class Meta:
         unique_together = ["securityid"]
@@ -126,10 +126,10 @@ class Transaction(models.Model):
     trade_date = models.DateField()
 
     TRANSACTION_TYPE_CHOICES = [
-        ("BUY", "Buy"),
-        ("SELL", "Sell"),
-        ("DEPOSIT", "Deposit"),
-        ("WITHDRAWAL", "Withdrawal"),
+        ("BUY", "buy"),
+        ("SELL", "sell"),
+        ("DEPOSIT", "deposit"),
+        ("WITHDRAWAL", "withdrawal"),
         ("INSTRUMENT-CASHFLOW", "instrument-cashflow"),
     ]
     trx_type = models.CharField(

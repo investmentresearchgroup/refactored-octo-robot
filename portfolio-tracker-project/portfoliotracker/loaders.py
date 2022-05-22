@@ -1,6 +1,7 @@
 from singleclient.models import *
 from util import to_bool
 from csv import DictReader
+from pandas import DataFrame
 
 
 def advisor(row: dict) -> None:
@@ -79,3 +80,19 @@ def trx(row: dict) -> None:
         trxid=row["trx_id"],
         comment=row["comment"],
     )
+
+def position(rows: DataFrame) -> None:
+
+    def create_position(row):
+        acct = Account.objects.get(accountid=row["accountid"])
+        sec = Security.objects.get(securityid=row["securityid"])
+        psn = Position(
+            account_id=acct.id,
+            security_id=sec.id,
+            date = row["date"],
+            mv=row["mv"],
+            qty=row["qty"]
+        )
+        return psn
+    psns = [create_position(row) for idx, row in rows.iterrows()]
+    Position.objects.bulk_create(psns)
