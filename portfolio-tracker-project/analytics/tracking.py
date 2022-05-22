@@ -83,7 +83,7 @@ class TrackingModel(Transaction):
 
 
 
-    def track(self, trxs: DataFrame, pxs: DataFrame) -> DataFrame:
+    def track(self, trxs: DataFrame) -> DataFrame:
         """Does a full tracking of all cash an non-cash positions.
         Most expensive calcs:
         1. trxs get ordered once
