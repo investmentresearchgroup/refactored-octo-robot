@@ -10,3 +10,7 @@ Some notes on deploying the app:
 2. Push files and so on....
 
 
+1. Frontend:
+    i. Add AsOf and Client picker t top card
+
+

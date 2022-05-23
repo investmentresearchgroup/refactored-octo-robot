@@ -2,14 +2,458 @@
 
 {% block content %}
     {% include 'partials/messages.html' %}
-    <ul class="list-group">
-        <li class="list-group-item">Trade1</li>
-        <li class="list-group-item">Trade2</li>
-        <li class="list-group-item">Trade3</li>
-        <li class="list-group-item">Trade4</li>
-        <li class="list-group-item">Trade5</li>
-        <li class="list-group-item">Trade6</li>
-        <li class="list-group-item">Trade7</li>
-    </ul>
+
+    <!--Summary TODO: Add asof and date picker-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                <h5 class="text-uppercase">Good Morning David!!</h5>
+                <p>Here is your holdings summary</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                            <div>
+                                <div class="align-center">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Client Name
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Account 1</a>
+                                            <a class="dropdown-item" href="#">Account 2</a>
+                                            <a class="dropdown-item" href="#">Account 3</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="mb-0">Market Value</p>
+                                <h5 class="text-danger">278 <i class="fas fa-rocket text-danger"></i></h5>
+                            </div>
+                            <div>
+                                <p class="mb-0">Gain (Since Inceptions)</p>
+                                <h5 class="text-success">156 <i class="far fa-user text-success"></i></h5>
+                            </div>
+                            <div>
+                                <p class="mb-0">Return (Since Inception)</p>
+                                <h5 class="text-warning">64.89 % <i class="fas fa-chart-pie text-warning"></i></h5>
+                            </div>
+                            <div>
+                                <p class="mb-0 border-left">Cash Balance</p>
+                                <h5 class="text-info">423 GHC</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            Charts
+        </div>
+    </div>
+
+    <!--Portfolio Holdings-->
+    <div class="container">
+	<div class="col-md-12">
+    	<div class="panel panel-default">
+				<div class="panel-heading">
+					Employee
+				</div>
+        <div class="panel-body">
+		<table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+		  <th></th>
+          <th>Fist Name</th>
+          <th>Last Name</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+           <td><button class="btn btn-default btn-xs"><i class="fa-solid fa-caret-down"></i></span></button></td>
+            <td>Carlos</td>
+            <td>Mathias</td>
+            <td>Leme</td>
+            <td>SP</td>
+          	<td>new</td>
+        </tr>
+
+        <tr>
+            <td colspan="12" class="hiddenRow">
+							<div class="accordian-body collapse" id="demo1">
+              <table class="table table-striped">
+                      <thead>
+                        <tr class="info">
+													<th>Job</th>
+													<th>Company</th>
+													<th>Salary</th>
+													<th>Date On</th>
+													<th>Date off</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+
+											<tbody>
+
+                        <tr data-toggle="collapse"  class="accordion-toggle" data-target="#demo10">
+													<td> <a href="#">Enginner Software</a></td>
+													<td>Google</td>
+													<td>U$8.00000 </td>
+													<td> 2016/09/27</td>
+													<td> 2017/09/27</td>
+													<td>
+														<a href="#" class="btn btn-default btn-sm">
+                 								 <i class="glyphicon glyphicon-cog"></i>
+															</a>
+													</td>
+												</tr>
+
+												 <tr>
+            <td colspan="12" class="hiddenRow">
+							<div class="accordian-body collapse" id="demo10">
+              <table class="table table-striped">
+                      <thead>
+                        <tr>
+													<td><a href="#"> XPTO 1</a></td>
+													<td>XPTO 2</td>
+													<td>Obs</td>
+												</tr>
+                        <tr>
+													<th>item 1</th>
+													<th>item 2</th>
+													<th>item 3 </th>
+													<th>item 4</th>
+													<th>item 5</th>
+													<th>Actions</th>
+												</tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+													<td>item 1</td>
+													<td>item 2</td>
+													<td>item 3</td>
+													<td>item 4</td>
+													<td>item 5</td>
+													<td>
+															<a href="#" class="btn btn-default btn-sm">
+                  							<i class="glyphicon glyphicon-cog"></i>
+															</a>
+													</td>
+												</tr>
+                      </tbody>
+               	</table>
+
+              </div>
+          </td>
+        </tr>
+
+                        <tr>
+													<td>Scrum Master</td>
+													<td>Google</td>
+													<td>U$8.00000 </td>
+													<td> 2016/09/27</td>
+													<td> 2017/09/27</td>
+													<td> <a href="#" class="btn btn-default btn-sm">
+                 								 <i class="glyphicon glyphicon-cog"></i>
+															</a>
+													</td>
+												</tr>
+
+
+                        <tr>
+													<td>Back-end</td>
+													<td>Google</td>
+													<td>U$8.00000 </td>
+													<td> 2016/09/27</td>
+													<td> 2017/09/27</td>
+													<td> <a href="#" class="btn btn-default btn-sm">
+                 								 <i class="glyphicon glyphicon-cog"></i>
+															</a>
+													</td>
+												</tr>
+
+
+                        <tr>
+													<td>Front-end</td>
+													<td>Google</td>
+													<td>U$8.00000 </td>
+													<td> 2016/09/27</td>
+													<td> 2017/09/27</td>
+													<td> <a href="#" class="btn btn-default btn-sm">
+                 								 <i class="glyphicon glyphicon-cog"></i>
+															</a>
+													</td>
+												</tr>
+
+
+                      </tbody>
+               	</table>
+
+              </div>
+          </td>
+        </tr>
+
+
+
+        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td>Silvio</td>
+            <td>Santos</td>
+            <td>São Paulo</td>
+            <td>SP</td>
+          <td> new</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">Demo2</div></td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+            <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+            <td>John</td>
+            <td>Doe</td>
+            <td>Dracena</td>
+            <td>SP</td>
+          <td> New</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow"><div id="demo3" class="accordian-body collapse">Demo3 sadasdasdasdasdas</div></td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+
+          </div>
+
+      </div>
+	</div>
+
+
+
+    <!-- Transactions-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                <h5 class="text-uppercase">Transactions!!</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+            <div class="align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                            <table class="table table-sm table-hover mb-0">
+                                <thead>
+                                <tr>
+                                    <th ></th>
+                                    <th >Product Detail Views</th>
+                                    <th >Unique Purchases</th>
+                                    <th >Quantity</th>
+                                    <th >Product Revenue</th>
+                                    <th >Avg. Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>Value</th>
+                                    <td>18,492</td>
+                                    <td>228</td>
+                                    <td>350</td>
+                                    <td>$4,787.64</td>
+                                    <td>$13.68</td>
+                                </tr>
+                                <tr>
+                                    <th >Percentage change</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>46.4%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>29.6%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-11.5%</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Average</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-17,654</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>28</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>111</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>$1,092.72</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>$-1.78</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th >Buy-to-details</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>46.4%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>29.6%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-11.5%</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th >Sales</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-17,654</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>28</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>111</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>$1,092.72</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>$-1.78</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th >Website traffic</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>46.4%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>29.6%</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-11.5%</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th >Clickthrough</th>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>-17,654</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>28</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>111</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-success">
+                                        <i class="fas fa-caret-up me-1"></i><span>$1,092.72</span>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span class="text-danger">
+                                        <i class="fas fa-caret-down me-1"></i><span>$-1.78</span>
+                                    </span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
 {% endblock content %}
