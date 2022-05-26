@@ -15,6 +15,7 @@ sqlparse = "==0.4.1"
 tenacity = "==8.0.1"
 Django = "==3.2.6"
 django-pandas = "*"
+validate-email = "*"
 
 [dev-packages]
 

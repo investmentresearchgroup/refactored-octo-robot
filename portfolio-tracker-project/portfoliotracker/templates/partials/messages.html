@@ -2,7 +2,7 @@
 <div class="messages mt-2">
     {% for message in messages %}
     <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
         {{ message }}
     </div>
     {% endfor %}

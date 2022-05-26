@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+AUTHENTICATION_BACKENDS = [ # allo inactive users to log in still
+    'django.contrib.auth.backends.AllowAllUsersModelBackend']
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
