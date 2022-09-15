@@ -20,12 +20,12 @@
                                 <div class="align-center">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Client Name
+                                            {{client.name}}
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Account 1</a>
-                                            <a class="dropdown-item" href="#">Account 2</a>
-                                            <a class="dropdown-item" href="#">Account 3</a>
+                                          {% for account in accounts %}
+                                            <a class="dropdown-item" href="#">{{account.account_name}}</a>
+                                          {% endfor %}
                                         </div>
                                     </div>
                                 </div>
